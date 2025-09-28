@@ -24,7 +24,21 @@
                   >Home <span class="sr-only">(current)</span></router-link
                 >
               </li>
+              <li class="nav-item" :class="{ active: $route.name === 'About' }">
+                <router-link class="nav-link" to="/about"
+                  >About <span class="sr-only">(current)</span></router-link
+                >
+              </li>
               <li
+                class="nav-item"
+                :class="{ active: $route.name === 'Testimonial' }"
+              >
+                <router-link class="nav-link" to="/testimonial"
+                  >Testimonial
+                  <span class="sr-only">(current)</span></router-link
+                >
+              </li>
+              <!-- <li
                 class="nav-item dropdown"
                 :class="{ active: $route.name === 'About' }"
               >
@@ -45,7 +59,7 @@
                     <router-link to="/testimonial">Testimonial</router-link>
                   </li>
                 </ul>
-              </li>
+              </li> -->
               <li
                 class="nav-item"
                 :class="{ active: $route.name === 'Product' }"

@@ -51,7 +51,7 @@ l
               </button>
             </li>
           </ul>
-          <div class="tab-content" id="authTabContent">
+          <div class="tab-content mt-3" id="authTabContent">
             <div
               class="tab-pane fade show active"
               id="signup"
