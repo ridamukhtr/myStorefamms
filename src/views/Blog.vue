@@ -1,22 +1,16 @@
 <template>
   <div class="sub_page">
-    <section class="inner_page_head">
-      <div class="container_fuild">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="full">
-              <h3>Blog</h3>
-            </div>
-          </div>
-        </div>
+    <section class="">
+      <div class="col-md-12 text-center mt-5">
+        <h2 class="fs-bolder">Blog</h2>
       </div>
     </section>
-    <section class="blog_section layout_padding">
+    <section class="blog_section pt-2">
       <div class="container">
         <div class="heading_container heading_center">
           <h2>From Our Blog</h2>
         </div>
-        <div class="row my-4">
+        <div class="row my-4 pb-5">
           <div class="col-md-6 col-lg-4 mx-auto">
             <div class="box">
               <div class="img-box">

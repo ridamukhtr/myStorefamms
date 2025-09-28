@@ -1,26 +1,20 @@
 <template>
   <div class="sub_page">
     <!-- inner page section -->
-    <section class="inner_page_head">
-      <div class="container_fuild">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="full">
-              <h3>About us</h3>
-            </div>
-          </div>
-        </div>
+    <section class="">
+      <div class="col-md-12 text-center mt-5">
+        <h2 class="fs-bolder">About us</h2>
       </div>
     </section>
     <!-- end inner page section -->
 
     <!-- why section -->
-    <section class="why_section layout_padding">
+    <section class="why_section pt-2">
       <div class="container">
         <div class="heading_container heading_center">
           <h2>Why Shop With Us</h2>
         </div>
-        <div class="row">
+        <div class="row pb-5">
           <div class="col-md-4">
             <div class="box">
               <div class="img-box">

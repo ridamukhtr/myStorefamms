@@ -1,17 +1,11 @@
 <template>
   <div class="sub_page">
-    <section class="inner_page_head">
-      <div class="container_fuild">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="full">
-              <h3>Testimonial</h3>
-            </div>
-          </div>
-        </div>
+    <section class="">
+      <div class="col-md-12 text-center mt-5">
+        <h2 class="fs-bolder">Testimonials</h2>
       </div>
     </section>
-    <section class="client_section layout_padding">
+    <section class="client_section pt-2 pb-5">
       <div class="container">
         <div class="heading_container heading_center">
           <h2>Customer's Testimonial</h2>

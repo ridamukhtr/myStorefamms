@@ -602,6 +602,7 @@ export default {
           image: "/images/p4.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 5,
@@ -610,6 +611,7 @@ export default {
           image: "/images/p5.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 6,
@@ -618,6 +620,7 @@ export default {
           image: "/images/p6.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 7,
@@ -626,6 +629,7 @@ export default {
           image: "/images/p7.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 8,
@@ -634,6 +638,7 @@ export default {
           image: "/images/p8.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 9,
@@ -642,6 +647,7 @@ export default {
           image: "/images/p9.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 10,
@@ -650,6 +656,7 @@ export default {
           image: "/images/p10.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 11,
@@ -658,6 +665,7 @@ export default {
           image: "/images/p11.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 12,
@@ -666,6 +674,7 @@ export default {
           image: "/images/p12.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
       ],
     };

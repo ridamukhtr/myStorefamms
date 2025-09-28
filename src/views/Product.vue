@@ -1,17 +1,11 @@
 <template>
   <div class="sub_page">
-    <section class="inner_page_head">
-      <div class="container_fuild">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="full">
-              <h3>Products</h3>
-            </div>
-          </div>
-        </div>
+    <section class="">
+      <div class="col-md-12 text-center mt-5">
+        <h2 class="fs-bolder">Products</h2>
       </div>
     </section>
-    <section class="product_section layout_padding">
+    <section class="product_section pt-2">
       <div class="container">
         <div class="heading_container heading_center">
           <h2>Our <span>products</span></h2>
@@ -67,7 +61,7 @@
             </div>
           </div>
         </div>
-        <div class="btn-box">
+        <div class="btn-box pb-5">
           <a href=""> View All products </a>
         </div>
       </div>

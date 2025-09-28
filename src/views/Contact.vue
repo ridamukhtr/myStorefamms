@@ -1,17 +1,11 @@
 <template>
   <div class="sub_page">
-    <section class="inner_page_head">
-      <div class="container_fuild">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="full">
-              <h3>Contact Us</h3>
-            </div>
-          </div>
-        </div>
+    <section class="">
+      <div class="col-md-12 text-center mt-5">
+        <h2 class="fs-bolder">Contact us</h2>
       </div>
     </section>
-    <section class="contact_section">
+    <section class="contact_section pt-2">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
@@ -36,8 +30,8 @@
                     class="message-box"
                   />
                 </div>
-                <div class="btn_box">
-                  <button>SEND</button>
+                <div class="btn-box pb-5">
+                  <button class="btn-primary2">SEND</button>
                 </div>
               </form>
             </div>
@@ -59,4 +53,22 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.btn-secondary1 {
+  background-color: rgb(251, 251, 251);
+  border: #002c3e 1px solid;
+  color: black;
+  /* align-items: center; */
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.btn-primary2 {
+  background-color: #002c3e;
+  border-color: #002c3e solid 1px;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+</style>
