@@ -45,23 +45,24 @@
                     <h6>{{ item.name }}</h6>
                     <p class="text-muted mb-0">{{ item.price }}</p>
                   </div>
-                  <div class="col-md-3">
-                    <div class="input-group">
+                  <div class="col-md-2 col-sm-2 mx-sm-3">
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
                       <button
-                        class="btn btn-outline-secondary btn-sm"
                         @click="decreaseQuantity(item)"
+                        class="btn btn-sm btn-secondary1 rounded-circle d-flex justify-content-center align-items-center me-2"
+                        style="width: 30px; height: 30px"
                       >
                         -
                       </button>
-                      <input
-                        type="text"
-                        class="form-control text-center"
-                        :value="item.quantity"
-                        readonly
-                      />
+                      <span class="text-black mx-3 fs-5 fw-bold">{{
+                        item.quantity
+                      }}</span>
                       <button
-                        class="btn btn-outline-secondary btn-sm"
                         @click="increaseQuantity(item)"
+                        class="btn btn-sm btn-secondary1 rounded-circle d-flex justify-content-center align-items-center ms-2"
+                        style="width: 30px; height: 30px"
                       >
                         +
                       </button>
@@ -148,7 +149,8 @@ export default {
   computed: {
     subtotal() {
       return this.cartItems.reduce(
-        (sum, item) => sum + parseFloat(item.price) * item.quantity,
+        (sum, item) =>
+          sum + parseFloat(item.price.replace("$", "")) * item.quantity,
         0
       );
     },
@@ -182,7 +184,7 @@ export default {
     },
     checkout() {
       // Show auth modal
-      const modal = Modal.getInstance(document.getElementById("authModal"));
+      const modal = new bootstrap.Modal(document.getElementById("authModal"));
       modal.show();
     },
   },
