@@ -23,14 +23,34 @@
             :key="product.id"
           >
             <div class="box">
-              <div class="option_container">
-                <div class="options">
-                  <a href="" class="option1">
-                    {{ product.option1 }}
-                  </a>
-                  <a href="" class="option2">
-                    {{ product.option2 }}
-                  </a>
+              <div
+                class="option_container d-flex flex-column justify-content-center align-items-center"
+              >
+                <div
+                  class="d-flex justify-content-center align-items-center mb-2 bg-light rounded-pill"
+                >
+                  <button
+                    @click="decreaseQuantity(product)"
+                    class="btn btn-sm btn-secondary1 rounded-circle d-flex justify-content-center align-items-center me-2"
+                    style="width: 30px; height: 30px"
+                  >
+                    -
+                  </button>
+                  <span class="text-black mx-3 fs-5 fw-bold">{{
+                    product.quantity
+                  }}</span>
+                  <button
+                    @click="increaseQuantity(product)"
+                    class="btn btn-sm btn-secondary1 rounded-circle d-flex justify-content-center align-items-center ms-2"
+                    style="width: 30px; height: 30px"
+                  >
+                    +
+                  </button>
+                </div>
+                <div>
+                  <button @click="addToCart(product)" class="btn-primary2">
+                    Add to Cart
+                  </button>
                 </div>
               </div>
               <div class="img-box">
@@ -68,6 +88,7 @@ export default {
           image: "/images/p1.png",
           option1: "Men's Shirt",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 2,
@@ -76,6 +97,7 @@ export default {
           image: "/images/p2.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 3,
@@ -84,6 +106,7 @@ export default {
           image: "/images/p3.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 4,
@@ -92,6 +115,7 @@ export default {
           image: "/images/p4.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 5,
@@ -100,6 +124,7 @@ export default {
           image: "/images/p5.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 6,
@@ -108,6 +133,7 @@ export default {
           image: "/images/p6.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 7,
@@ -116,6 +142,7 @@ export default {
           image: "/images/p7.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 8,
@@ -124,6 +151,7 @@ export default {
           image: "/images/p8.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 9,
@@ -132,6 +160,7 @@ export default {
           image: "/images/p9.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 10,
@@ -140,6 +169,7 @@ export default {
           image: "/images/p10.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 11,
@@ -148,6 +178,7 @@ export default {
           image: "/images/p11.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
         {
           id: 12,
@@ -156,11 +187,50 @@ export default {
           image: "/images/p12.png",
           option1: "Add To Cart",
           option2: "Buy Now",
+          quantity: 1,
         },
       ],
     };
   },
+  methods: {
+    increaseQuantity(product) {
+      product.quantity++;
+    },
+    decreaseQuantity(product) {
+      if (product.quantity > 1) {
+        product.quantity--;
+      }
+    },
+    addToCart(product) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existing = cart.find((item) => item.id === product.id);
+      if (existing) {
+        existing.quantity += product.quantity;
+      } else {
+        cart.push({ ...product });
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Added to cart!");
+    },
+  },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.btn-secondary1 {
+  background-color: rgb(251, 251, 251);
+  border: #002c3e 1px solid;
+  color: black;
+  /* align-items: center; */
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.btn-primary2 {
+  background-color: #002c3e;
+  border-color: #002c3e solid 1px;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+}
+</style>

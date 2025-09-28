@@ -135,26 +135,12 @@ export default {
   name: "Cart",
   data() {
     return {
-      cartItems: [
-        {
-          id: 1,
-          name: "Men's Shirt",
-          price: "75.00",
-          image: "/images/p1.png",
-          quantity: 2,
-        },
-        {
-          id: 2,
-          name: "Women's Dress",
-          price: "68.00",
-          image: "/images/p3.png",
-          quantity: 1,
-        },
-      ],
+      cartItems: [],
       user: null,
     };
   },
   mounted() {
+    this.loadCart();
     onAuthStateChanged(auth, (user) => {
       this.user = user;
     });
@@ -174,20 +160,29 @@ export default {
     },
   },
   methods: {
+    loadCart() {
+      this.cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    },
+    saveCart() {
+      localStorage.setItem("cart", JSON.stringify(this.cartItems));
+    },
     increaseQuantity(item) {
       item.quantity++;
+      this.saveCart();
     },
     decreaseQuantity(item) {
       if (item.quantity > 1) {
         item.quantity--;
+        this.saveCart();
       }
     },
     removeItem(item) {
       this.cartItems = this.cartItems.filter((i) => i.id !== item.id);
+      this.saveCart();
     },
     checkout() {
       // Show auth modal
-      const modal = new bootstrap.Modal(document.getElementById("authModal"));
+      const modal = Modal.getInstance(document.getElementById("authModal"));
       modal.show();
     },
   },
@@ -222,7 +217,7 @@ export default {
 
 .btn-primary2 {
   background-color: #002c3e;
-  border-color: #002c3e;
+  border-color: #002c3e solid 1px;
   color: white;
   padding: 10px;
   border-radius: 4px;

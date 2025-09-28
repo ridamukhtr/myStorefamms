@@ -193,7 +193,7 @@ export default {
 <style scoped>
 .btn-primary2 {
   background-color: #002c3e;
-  border-color: #002c3e;
+  border-color: #002c3e solid 1px;
   color: white;
   padding: 8px;
   border-radius: 4px;
