@@ -53,14 +53,5 @@ const router = createRouter({
     routes
 })
 
-// Add navigation guard to force reload for Home route
-router.beforeEach((to, from, next) => {
-    if (to.name === 'Home' && from.name && to.name === from.name) {
-        // Force reload when navigating to Home from Home
-        window.location.reload()
-    } else {
-        next()
-    }
-})
 
 export default router
