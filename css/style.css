@@ -963,7 +963,9 @@ li.nav-item ul li a:hover,
 li.nav-item ul li a:focus {
   color: #f7444e;
 }
-
+a {
+  text-decoration: none;
+}
 .inner_page_head {
   background: #f7444e;
   text-align: center;

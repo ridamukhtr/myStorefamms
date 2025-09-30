@@ -17,38 +17,42 @@
             :key="product.id"
           >
             <div class="box">
-              <div
-                class="option_container d-flex flex-column justify-content-center align-items-center"
-              >
+              <div class="img-box position-relative">
+                <img :src="product.image" :alt="product.name" />
                 <div
-                  class="d-flex justify-content-center align-items-center mb-2 bg-light rounded-pill"
+                  v-if="!product.isInCart"
+                  class="position-absolute myBtn bg-light"
+                >
+                  <button
+                    @click="addToCart(product)"
+                    class="btn btn-sm btn-secondary1 rounded-circle d-flex justify-content-center align-items-center"
+                    style="width: 24px; height: 24px"
+                  >
+                    +
+                  </button>
+                </div>
+                <div
+                  v-else
+                  class="position-absolute myBtn rounded-pill d-flex justify-content-center align-items-center"
                 >
                   <button
                     @click="decreaseQuantity(product)"
                     class="btn btn-sm btn-secondary1 rounded-circle d-flex justify-content-center align-items-center me-2"
-                    style="width: 30px; height: 30px"
+                    style="width: 24px; height: 24px"
                   >
                     -
                   </button>
-                  <span class="text-black mx-3 fs-5 fw-bold">{{
+                  <span class="text-black mx-3 fs-6">{{
                     product.quantity
                   }}</span>
                   <button
                     @click="increaseQuantity(product)"
                     class="btn btn-sm btn-secondary1 rounded-circle d-flex justify-content-center align-items-center ms-2"
-                    style="width: 30px; height: 30px"
+                    style="width: 24px; height: 24px"
                   >
                     +
                   </button>
                 </div>
-                <div>
-                  <button @click="addToCart(product)" class="btn-primary2">
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-              <div class="img-box">
-                <img :src="product.image" :alt="product.name" />
               </div>
               <div class="detail-box">
                 <h5>
@@ -62,7 +66,7 @@
           </div>
         </div>
         <div class="btn-box pb-5">
-          <a href=""> View All products </a>
+          <a href="" class="text-decoration-none"> View All products </a>
         </div>
       </div>
     </section>
@@ -72,6 +76,9 @@
 <script>
 export default {
   name: "Product",
+  mounted() {
+    this.checkCart();
+  },
   data() {
     return {
       products: [
@@ -83,6 +90,7 @@ export default {
           option1: "Men's Shirt",
           option2: "Buy Now",
           quantity: 1,
+          isInCart: false,
         },
         {
           id: 2,
@@ -92,6 +100,7 @@ export default {
           option1: "Add To Cart",
           option2: "Buy Now",
           quantity: 1,
+          isInCart: false,
         },
         {
           id: 3,
@@ -101,6 +110,7 @@ export default {
           option1: "Add To Cart",
           option2: "Buy Now",
           quantity: 1,
+          isInCart: false,
         },
         {
           id: 4,
@@ -110,6 +120,7 @@ export default {
           option1: "Add To Cart",
           option2: "Buy Now",
           quantity: 1,
+          isInCart: false,
         },
         {
           id: 5,
@@ -119,6 +130,7 @@ export default {
           option1: "Add To Cart",
           option2: "Buy Now",
           quantity: 1,
+          isInCart: false,
         },
         {
           id: 6,
@@ -128,6 +140,7 @@ export default {
           option1: "Add To Cart",
           option2: "Buy Now",
           quantity: 1,
+          isInCart: false,
         },
         {
           id: 7,
@@ -137,6 +150,7 @@ export default {
           option1: "Add To Cart",
           option2: "Buy Now",
           quantity: 1,
+          isInCart: false,
         },
         {
           id: 8,
@@ -146,6 +160,7 @@ export default {
           option1: "Add To Cart",
           option2: "Buy Now",
           quantity: 1,
+          isInCart: false,
         },
         {
           id: 9,
@@ -155,6 +170,7 @@ export default {
           option1: "Add To Cart",
           option2: "Buy Now",
           quantity: 1,
+          isInCart: false,
         },
         {
           id: 10,
@@ -164,6 +180,7 @@ export default {
           option1: "Add To Cart",
           option2: "Buy Now",
           quantity: 1,
+          isInCart: false,
         },
         {
           id: 11,
@@ -173,6 +190,7 @@ export default {
           option1: "Add To Cart",
           option2: "Buy Now",
           quantity: 1,
+          isInCart: false,
         },
         {
           id: 12,
@@ -182,29 +200,57 @@ export default {
           option1: "Add To Cart",
           option2: "Buy Now",
           quantity: 1,
+          isInCart: false,
         },
       ],
     };
   },
   methods: {
+    checkCart() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      this.products.forEach((p) => {
+        const item = cart.find((c) => c.id === p.id);
+        if (item) {
+          p.isInCart = true;
+          p.quantity = item.quantity;
+        } else {
+          p.isInCart = false;
+          p.quantity = 1;
+        }
+      });
+    },
     increaseQuantity(product) {
       product.quantity++;
+      this.updateCart(product);
     },
     decreaseQuantity(product) {
       if (product.quantity > 1) {
         product.quantity--;
+        this.updateCart(product);
+      } else if (product.quantity === 1) {
+        this.removeFromCart(product);
+        product.isInCart = false;
       }
     },
     addToCart(product) {
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ ...product });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      product.isInCart = true;
+      // alert("Added to cart!");
+    },
+    removeFromCart(product) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart = cart.filter((item) => item.id !== product.id);
+      localStorage.setItem("cart", JSON.stringify(cart));
+    },
+    updateCart(product) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
       const existing = cart.find((item) => item.id === product.id);
       if (existing) {
-        existing.quantity += product.quantity;
-      } else {
-        cart.push({ ...product });
+        existing.quantity = product.quantity;
+        localStorage.setItem("cart", JSON.stringify(cart));
       }
-      localStorage.setItem("cart", JSON.stringify(cart));
-      alert("Added to cart!");
     },
   },
 };
@@ -226,5 +272,50 @@ export default {
   color: white;
   padding: 10px;
   border-radius: 4px;
+}
+
+.btn-primary2:hover {
+  background-color: rgb(251, 251, 251);
+  border: #002c3e 1px solid;
+  color: black;
+}
+
+.myBtn {
+  background-color: #d6d8d8;
+  top: -23px;
+  right: -30px;
+}
+
+/* Responsive adjustments for counter container */
+@media (max-width: 767px) {
+  .myBtn {
+    top: -20px;
+    right: -20px;
+    padding: 4px 8px;
+  }
+  .myBtn button {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+  .myBtn span {
+    font-size: 14px;
+    margin: 0 6px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .myBtn {
+    top: -21px;
+    right: -25px;
+  }
+  .myBtn button {
+    width: 22px;
+    height: 22px;
+  }
+  .myBtn span {
+    font-size: 15px;
+    margin: 0 8px;
+  }
 }
 </style>

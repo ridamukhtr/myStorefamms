@@ -173,13 +173,13 @@ sup {
 
 a {
   color: #007bff;
-  text-decoration: none;
+  text-decoration: none !important;
   background-color: transparent;
 }
 
 a:hover {
   color: #0056b3;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {
@@ -10342,7 +10342,7 @@ a.text-dark:focus {
     box-shadow: none !important;
   }
   a:not(.btn) {
-    text-decoration: underline;
+    text-decoration: none !important;
   }
   abbr[title]::after {
     content: " (" attr(title) ")";

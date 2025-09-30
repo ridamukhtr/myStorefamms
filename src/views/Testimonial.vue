@@ -82,7 +82,7 @@
           </div>
           <div class="carousel_btn_box">
             <a
-              class="carousel-control-prev"
+              class="carousel-control-prev text-decoration-none"
               href="#carouselExample3Controls"
               role="button"
               data-slide="prev"
@@ -91,7 +91,7 @@
               <span class="sr-only">Previous</span>
             </a>
             <a
-              class="carousel-control-next"
+              class="carousel-control-next text-decoration-none"
               href="#carouselExample3Controls"
               role="button"
               data-slide="next"

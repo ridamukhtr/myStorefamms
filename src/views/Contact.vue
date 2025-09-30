@@ -71,4 +71,10 @@ export default {
   margin-bottom: 10px;
   border-radius: 6px;
 }
+
+.btn-primary2:hover {
+  background-color: rgb(251, 251, 251);
+  border: #002c3e 1px solid;
+  color: black;
+}
 </style>

@@ -13,12 +13,10 @@ l
           <h5 class="modal-title" id="authModalLabel">Authentication</h5>
           <button
             type="button"
-            class="btn-close border-0 bg-transparent fs-4 fw-bold"
+            class="btn-close border-0 bg-transparent"
             data-bs-dismiss="modal"
             aria-label="Close"
-          >
-            X
-          </button>
+          ></button>
         </div>
         <div class="modal-body">
           <ul class="nav nav-tabs" id="authTab" role="tablist">
@@ -200,6 +198,12 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.btn-primary2:hover {
+  background-color: rgb(251, 251, 251);
+  border: #002c3e 1px solid;
+  color: black;
 }
 
 .no-border {

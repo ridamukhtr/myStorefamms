@@ -1,14 +1,8 @@
 <template>
   <div class="sub_page">
-    <section class="inner_page_head px-sm-0">
-      <div class="container_fuild px-sm-0">
-        <div class="row px-0">
-          <div class="col-md-12 px-sm-0">
-            <div class="full px-sm-0">
-              <h3>Shopping Cart</h3>
-            </div>
-          </div>
-        </div>
+    <section class="">
+      <div class="col-md-12 text-center mt-5">
+        <h2 class="fs-bolder">Shopping Cart</h2>
       </div>
     </section>
     <section class="cart_section layout_padding">
@@ -38,7 +32,7 @@
                     <img
                       :src="item.image"
                       :alt="item.name"
-                      class="img-fluid rounded"
+                      class="img-fluid rounded custom-img"
                     />
                   </div>
                   <div class="col-md-3">
@@ -47,7 +41,7 @@
                   </div>
                   <div class="col-md-2 col-sm-2 mx-sm-3">
                     <div
-                      class="d-flex justify-content-center align-items-center"
+                      class="d-flex justify-content-lg-center justify-content-start align-items-center"
                     >
                       <button
                         @click="decreaseQuantity(item)"
@@ -115,7 +109,9 @@
                 <div
                   class="text-center d-flex justify-content-center align-items-center"
                 >
-                  <router-link to="/product" class="btn-secondary1 w-100 my-2"
+                  <router-link
+                    to="/product"
+                    class="btn-secondary1 w-100 my-2 text-decoration-none"
                     >Continue Shopping</router-link
                   >
                 </div>
@@ -224,6 +220,12 @@ export default {
   padding: 10px;
   border-radius: 4px;
 }
+
+.btn-primary2:hover {
+  background-color: rgb(229, 229, 229);
+  border: #002c3e 1px solid;
+  color: black;
+}
 .btn-secondary1 {
   background-color: rgb(251, 251, 251);
   border: #002c3e 1px solid;
@@ -231,6 +233,10 @@ export default {
   /* align-items: center; */
   padding: 10px;
   border-radius: 4px;
+}
+.custom-img {
+  max-width: 80px; /* control exact size */
+  height: auto;
 }
 
 @media (max-width: 768px) {
