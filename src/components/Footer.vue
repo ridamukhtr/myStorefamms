@@ -84,7 +84,7 @@
     <p class="mx-auto">
       © 2021 All Rights Distributed By
       <br />
-      <a href="#" target="_blank">ThemeWagon</a>
+      <a href="#" class="text-decoration-none" target="_blank">ThemeWagon</a>
     </p>
   </div>
 </template>

@@ -17,7 +17,9 @@
                 <div v-if="cartItems.length === 0" class="text-center py-5">
                   <h4>Your cart is empty</h4>
                   <div class="text-center m-4">
-                    <router-link to="/product" class="btn-secondary1 w-100 my-2"
+                    <router-link
+                      to="/product"
+                      class="btn-secondary1 w-100 my-2 text-decoration-none"
                       >Continue Shopping</router-link
                     >
                   </div>
